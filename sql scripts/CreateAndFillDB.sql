@@ -13,7 +13,7 @@ CREATE TABLE `employee` (
   `last_name` varchar(45) DEFAULT NULL,
   `date_of_birth` datetime DEFAULT NULL,
   `date_of_employment` datetime DEFAULT NULL,
-  `status` tinyint(1) DEFAULT 0,
+  `status` tinyint(1) DEFAULT 1,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1006 DEFAULT CHARSET=latin1;
 
