@@ -25,7 +25,13 @@ public class EmployeeService {
 		return employeeRepository.findById(employeeId).orElse(null);
 	}
 
-	public void addEmployee(Employee employee) {
+	public String addEmployee(Employee employee) {
 		employeeRepository.save(employee);
+		return "Employee Added Successfully";
+	}
+	
+	public String deleteEmployee(Employee employee) {
+		employeeRepository.delete(employee);
+		return "Employee Deleted Successfully";
 	}
 }
