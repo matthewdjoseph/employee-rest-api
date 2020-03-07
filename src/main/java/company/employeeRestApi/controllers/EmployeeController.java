@@ -24,16 +24,26 @@ public class EmployeeController {
 
 	}
 
+	// Get employee by id
 	@RequestMapping("/employee/{employeeId}")
 	public Employee getEmployeeById(@PathVariable("employeeId") Integer employeeId) {
 		return employeeService.getEmployee(employeeId);
 	}
 
+	// Add new employee
 	@RequestMapping(method = RequestMethod.POST, value = "/employee/addEmployee")
 	public void addEmployee(@RequestBody Employee employee) {
 		employeeService.addEmployee(employee);
 	}
 
+	// Update employee
+	@RequestMapping(method = RequestMethod.POST, value="/employee/updateEmployee/{employeeId}")
+	public void updateEmployee(@PathVariable("employeeId") Integer employeeId, @RequestBody Employee updatedEmployee) {
+		updatedEmployee.setId(employeeId);
+		employeeService.addEmployee(updatedEmployee);
+	}
+
+	// Delete employee
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteEmployee/{employeeId}")
 	public void deleteEmployee(@PathVariable("employeeId") Integer employeeId) {
 		employeeService.deleteEmployee(employeeService.getEmployee(employeeId));
