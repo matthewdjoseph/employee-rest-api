@@ -44,7 +44,7 @@ public class EmployeeController {
 	}
 
 	// Delete employee
-	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteEmployee/{employeeId}")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/employee/deleteEmployee/{employeeId}")
 	public void deleteEmployee(@PathVariable("employeeId") Integer employeeId) {
 		employeeService.deleteEmployee(employeeService.getEmployee(employeeId));
 	}
