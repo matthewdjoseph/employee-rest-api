@@ -13,15 +13,20 @@ public class EmployeeService {
 
 	@Autowired
 	private EmployeeRepository employeeRepository;
-	
-	public List<Employee> getAllEmployees() {
-        List<Employee> employees = new ArrayList<Employee>();
-        employeeRepository.findAll()
-                .forEach(employees::add);
-        return employees;
-    }
 
-    public void addEmployee(Employee employee) {
-        employeeRepository.save(employee);
-    }
+	public List<Employee> getAllEmployees() {
+		List<Employee> employees = new ArrayList<Employee>();
+		employeeRepository.findAll().forEach(employees::add);
+		return employees;
+	}
+	
+	public Employee getEmployee(int id) {
+		Employee employee = new Employee();
+		employeeRepository.findById(id);
+		return employee;
+	}
+
+	public void addEmployee(Employee employee) {
+		employeeRepository.save(employee);
+	}
 }
