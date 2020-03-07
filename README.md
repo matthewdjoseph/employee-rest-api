@@ -1,0 +1,1 @@
+This is a simple rest api for managing a database of employees.
