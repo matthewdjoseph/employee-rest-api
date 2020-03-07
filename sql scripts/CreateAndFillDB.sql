@@ -15,7 +15,7 @@ CREATE TABLE `employee` (
   `date_of_employment` datetime DEFAULT NULL,
   `status` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1006 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `employee`
