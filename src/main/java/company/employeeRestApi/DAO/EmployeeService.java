@@ -16,13 +16,20 @@ public class EmployeeService {
 
 	public List<Employee> getAllEmployees() {
 		List<Employee> employees = new ArrayList<Employee>();
-		employeeRepository.findAll().forEach(employees::add);
+		employeeRepository.findAll().forEach(e -> {
+			if(e.isStatus()) {
+				employees.add(e);
+			}
+		});
 		return employees;
 	}
 	
 	public Employee getEmployee(Integer employeeId) {
-		employeeRepository.findById(employeeId).orElse(null);
-		return employeeRepository.findById(employeeId).orElse(null);
+		Employee employee = employeeRepository.findById(employeeId).orElse(null);
+		if(!employee.isStatus()) {
+			employee = null;
+		}
+		return employee;
 	}
 
 	public String addEmployee(Employee employee) {
