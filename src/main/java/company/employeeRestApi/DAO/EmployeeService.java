@@ -20,10 +20,9 @@ public class EmployeeService {
 		return employees;
 	}
 	
-	public Employee getEmployee(int id) {
-		Employee employee = new Employee();
-		employeeRepository.findById(id);
-		return employee;
+	public Employee getEmployee(Integer employeeId) {
+		employeeRepository.findById(employeeId).orElse(null);
+		return employeeRepository.findById(employeeId).orElse(null);
 	}
 
 	public void addEmployee(Employee employee) {
