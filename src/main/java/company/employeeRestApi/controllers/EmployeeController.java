@@ -37,20 +37,17 @@ public class EmployeeController {
 	}
 
 	// Update employee
-	// this should get employee by id and then update only the fields passed in,
-	// instead of the entire object
 	@RequestMapping(method = RequestMethod.POST, value = "/employee/updateEmployee/{employeeId}")
 	public void updateEmployee(@PathVariable("employeeId") Integer employeeId, @RequestBody Employee updatedEmployee) {
-		// id, first name, middle init., last name, dob, doe, status
 		Employee employee = new Employee();
-		
+
 		employee.setId(employeeId);
 		employee.setFirstName(updatedEmployee.getFirstName());
 		employee.setMiddleInitial(updatedEmployee.getMiddleInitial());
 		employee.setLastName(updatedEmployee.getMiddleInitial());
 		employee.setDateOfBirth(updatedEmployee.getDateOfBirth());
 		employee.setDateOfEmployment(updatedEmployee.getDateOfEmployment());
-		
+
 		employeeService.saveEmployee(employee);
 	}
 
