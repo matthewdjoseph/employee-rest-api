@@ -32,13 +32,20 @@ public class EmployeeService {
 		return employee;
 	}
 
-	public String addEmployee(Employee employee) {
+	public String saveEmployee(Employee employee) {
 		employeeRepository.save(employee);
-		return "Employee Added Successfully";
+		return "Employee Saved Successfully";
 	}
 	
 	public String deleteEmployee(Employee employee) {
 		employeeRepository.delete(employee);
 		return "Employee Deleted Successfully";
 	}
+	
+	public String deactivateEmployee(Employee employee) {
+		employee.setStatus(false);
+		employeeRepository.save(employee);
+		return "Employee Status Updated";
+	}
+	
 }

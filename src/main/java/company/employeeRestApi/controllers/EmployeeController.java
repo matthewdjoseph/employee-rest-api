@@ -33,20 +33,28 @@ public class EmployeeController {
 	// Add new employee
 	@RequestMapping(method = RequestMethod.POST, value = "/employee/addEmployee")
 	public void addEmployee(@RequestBody Employee employee) {
-		employeeService.addEmployee(employee);
+		employeeService.saveEmployee(employee);
 	}
 
 	// Update employee
-	@RequestMapping(method = RequestMethod.POST, value="/employee/updateEmployee/{employeeId}")
+	// @TODO this should get employee by id and then update only the fields passed in,
+	// instead of the entire object
+	@RequestMapping(method = RequestMethod.POST, value = "/employee/updateEmployee/{employeeId}")
 	public void updateEmployee(@PathVariable("employeeId") Integer employeeId, @RequestBody Employee updatedEmployee) {
 		updatedEmployee.setId(employeeId);
-		employeeService.addEmployee(updatedEmployee);
+		employeeService.saveEmployee(updatedEmployee);
 	}
 
 	// Delete employee
 	@RequestMapping(method = RequestMethod.DELETE, value = "/employee/deleteEmployee/{employeeId}")
 	public void deleteEmployee(@PathVariable("employeeId") Integer employeeId) {
 		employeeService.deleteEmployee(employeeService.getEmployee(employeeId));
+	}
+
+	// Update Status
+	@RequestMapping(method = RequestMethod.DELETE, value = "/employee/deactivateEmployee/{employeeId}")
+	public void deactivateEmployee(@PathVariable("employeeId") Integer employeeId) {
+		employeeService.deactivateEmployee(employeeService.getEmployee(employeeId));
 	}
 
 }
