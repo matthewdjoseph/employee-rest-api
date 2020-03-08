@@ -2,6 +2,8 @@ package company.employeeRestApi.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -59,7 +61,7 @@ public class EmployeeController {
 
 	// Update Status
 	@RequestMapping(method = RequestMethod.DELETE, value = "/employee/deactivateEmployee/{employeeId}")
-	public void deactivateEmployee(@PathVariable("employeeId") Integer employeeId) {
+	public void deactivateEmployee(@PathVariable("employeeId") Integer employeeId, HttpSession session) {
 		employeeService.deactivateEmployee(employeeService.getEmployee(employeeId));
 	}
 
