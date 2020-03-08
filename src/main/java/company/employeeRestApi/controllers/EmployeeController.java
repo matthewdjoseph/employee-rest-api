@@ -62,7 +62,7 @@ public class EmployeeController {
 	// Update Status
 	@RequestMapping(method = RequestMethod.DELETE, value = "/employee/deactivateEmployee/{employeeId}")
 	public void deactivateEmployee(@PathVariable("employeeId") Integer employeeId, HttpSession session) {
-		employeeService.deactivateEmployee(employeeService.getEmployee(employeeId));
+		employeeService.deactivateEmployee(employeeId);
 	}
 
 }

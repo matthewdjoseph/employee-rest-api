@@ -42,10 +42,16 @@ public class EmployeeService {
 		return "Employee Deleted Successfully";
 	}
 
-	public String deactivateEmployee(Employee employee) {
-		employee.setStatus(false);
-		employeeRepository.save(employee);
-		return "Employee Status Updated";
+	public String deactivateEmployee(Integer employeeId) {
+		Employee employee = employeeRepository.findById(employeeId).orElse(null);
+		if (!employee.isStatus()) {
+			employee = null;
+			return "Employee Already Inactive";
+		} else {
+			employee.setStatus(false);
+			employeeRepository.save(employee);
+			return "Employee Status Updated";
+		}
 	}
 
 }
