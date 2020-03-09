@@ -42,9 +42,8 @@ public class EmployeeController {
 	// Update employee
 	@RequestMapping(method = RequestMethod.POST, value = "/employee/updateEmployee/{employeeId}")
 	public void updateEmployee(@PathVariable("employeeId") Integer employeeId, @RequestBody Employee updatedEmployee) {
-		Employee employee = new Employee();
+		Employee employee = employeeService.getEmployee(employeeId);
 
-		employee.setId(employeeId);
 		employee.setFirstName(updatedEmployee.getFirstName());
 		employee.setMiddleInitial(updatedEmployee.getMiddleInitial());
 		employee.setLastName(updatedEmployee.getMiddleInitial());

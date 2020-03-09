@@ -24,22 +24,22 @@ public class Employee {
 	private int id;
 
 	@Column(name = "first_name")
-	private String firstName;
+	public String firstName;
 
 	@Column(name = "middle_initial")
-	private String middleInitial;
+	public String middleInitial;
 
 	@Column(name = "last_name")
-	private String lastName;
+	public String lastName;
 
 	@Column(name = "date_of_birth")
-	private Date dateOfBirth;
+	public Date dateOfBirth;
 
 	@Column(name = "date_of_employment")
-	private Date dateOfEmployment;
+	public Date dateOfEmployment;
 
 	@Column(name = "status")
-	private boolean status;
+	public boolean status;
 
 	public Employee() {
 
@@ -57,13 +57,20 @@ public class Employee {
 		this.dateOfEmployment = dateOfEmployment;
 		this.status = status;
 	}
+	
+	public Employee(String firstName, String middleInitial, String lastName, Date dateOfBirth,
+			Date dateOfEmployment) {
+
+		super();
+		this.firstName = firstName;
+		this.middleInitial = middleInitial;
+		this.lastName = lastName;
+		this.dateOfBirth = dateOfBirth;
+		this.dateOfEmployment = dateOfEmployment;
+	}
 
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getFirstName() {

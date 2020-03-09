@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="7108" started-at="2020-03-09T21:06:17Z" finished-at="2020-03-09T21:06:24Z">
+  <suite name="Default suite" duration-ms="649" started-at="2020-03-09T23:49:47Z" finished-at="2020-03-09T23:49:47Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="7108" started-at="2020-03-09T21:06:17Z" finished-at="2020-03-09T21:06:24Z">
-      <class name="company.employee_rest_api.GetEmployeesTest">
-        <test-method status="PASS" signature="test1()[pri:0, instance:company.employee_rest_api.GetEmployeesTest@2d928643]" name="test1" duration-ms="7085" started-at="2020-03-09T21:06:17Z" finished-at="2020-03-09T21:06:24Z">
+    <test name="Default test" duration-ms="649" started-at="2020-03-09T23:49:47Z" finished-at="2020-03-09T23:49:47Z">
+      <class name="company.employee_rest_api.CreateEmployeeTest">
+        <test-method status="PASS" signature="createEmployee()[pri:0, instance:company.employee_rest_api.CreateEmployeeTest@49993335]" name="createEmployee" duration-ms="629" started-at="2020-03-09T23:49:47Z" finished-at="2020-03-09T23:49:47Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test1 -->
-      </class> <!-- company.employee_rest_api.GetEmployeesTest -->
+        </test-method> <!-- createEmployee -->
+      </class> <!-- company.employee_rest_api.CreateEmployeeTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

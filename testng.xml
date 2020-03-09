@@ -4,6 +4,7 @@
   <test thread-count="5" name="Test">
     <classes>
       <class name="company.employee_rest_api.GetEmployeesTest"/>
+      <class name="company.employee_rest_api.CreateEmployeeTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
