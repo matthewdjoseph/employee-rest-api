@@ -8,6 +8,15 @@ import org.springframework.stereotype.Service;
 
 import company.employeeRestApi.entities.Employee;
 
+/*
+ * Using the @Service annotation for this service ensures that this class is 
+ * only instantiated once on build and isn't created over and over again. 
+ * This is an example of the Singleton design pattern. Using this service,
+ * there is just one point of access to the database to separate business
+ * logic from the controllers.
+ * 
+ */
+
 @Service
 public class EmployeeService {
 
