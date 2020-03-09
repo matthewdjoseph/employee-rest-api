@@ -35,6 +35,7 @@ public class EmployeeController {
 	// Add new employee
 	@RequestMapping(method = RequestMethod.POST, value = "/employee/addEmployee")
 	public void addEmployee(@RequestBody Employee employee) {
+		employee.setStatus(true);
 		employeeService.saveEmployee(employee);
 	}
 

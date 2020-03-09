@@ -1,6 +1,6 @@
 package company.employee_rest_api;
 
-import static org.junit.Assert.assertEquals;
+import static org.testng.Assert.assertEquals;
 
 import java.io.IOException;
 
@@ -15,16 +15,16 @@ import org.testng.annotations.Test;
 public class GetEmployeesTest {
 
 	@Test
-	public void test1() throws ClientProtocolException, IOException {
+	public void test1() throws ClientProtocolException, IOException, InterruptedException {
 
 		// Given
 		HttpUriRequest request = new HttpGet("http://localhost:8080/");
 
 		// When
 		HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
-
+		Thread.sleep(5000);
 		// Then
-		assertEquals(httpResponse.getStatusLine().getStatusCode(), equals(HttpStatus.NOT_FOUND));
+		assertEquals(httpResponse.getStatusLine().getStatusCode(), 200);
 
 	}
 
