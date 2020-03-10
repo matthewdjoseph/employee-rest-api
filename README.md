@@ -101,7 +101,17 @@ used for the employee id.
 
 DELETE deactivate single employee: http://localhost:8080/employee/deactivateEmployee/{id}
 This request deactivates a single employee by the provided int URL parameter used for the
-employee id.  This request requires Basic Authentication to be attached with the following credentials:
+employee id.  This request requires Basic Authentication to be attached with the following 
+credentials:
 
 Username - matt
 Password - password
+
+TestNG
+------
+
+I've included some TestNG classes in the company.employee_rest_api package in /src/test/java.
+The TestNG classes include CreateEmployeeTest.java, DeactivateEmployeeTest.java, 
+DeleteEmployeeTest.java and GetEmployeesTest.java.  These are simple test cases to ensure
+that the requests are operating as expected.  These tests can be run by running the testng.xml
+file as a TestNG Suite.
