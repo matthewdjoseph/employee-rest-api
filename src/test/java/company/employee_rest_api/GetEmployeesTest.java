@@ -3,6 +3,7 @@ package company.employee_rest_api;
 import static org.testng.Assert.assertEquals;
 
 import java.io.IOException;
+import java.util.concurrent.ThreadLocalRandom;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -21,19 +22,25 @@ public class GetEmployeesTest {
 
 		// When
 		HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
-		
+
 		// Then
 		assertEquals(httpResponse.getStatusLine().getStatusCode(), 200);
 
 	}
-	
+
 	@Test
 	public void getEmployeeById() throws ClientProtocolException, IOException, InterruptedException {
+
+		// Generate an id
+		int randomId = ThreadLocalRandom.current().nextInt(1006, 10001);
 		
-		int employeeId = 1008;
-		HttpUriRequest request = new HttpGet("http://localhost:8080/employee/" + employeeId);
+		// Given
+		HttpUriRequest request = new HttpGet("http://localhost:8080/employee/" + randomId);
+		
+		// When
 		HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
-		
+
+		// Then
 		assertEquals(httpResponse.getStatusLine().getStatusCode(), 200);
 	}
 

@@ -11,13 +11,6 @@ import javax.persistence.Id;
 @Entity
 public class Employee {
 
-	/*
-	 * Keeping the attributes private ensures encapsulation of the data such that
-	 * the attributes can be accessed outside of this class while ensuring the
-	 * attributes themselves are not modified in any way by providing public
-	 * getters.
-	 */
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")

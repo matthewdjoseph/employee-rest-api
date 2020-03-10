@@ -15,6 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @ComponentScan(basePackages = "company.employeeRestApi")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+	// authorize with a manually hashed password for development with passwordEncoder
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication().passwordEncoder(passwordEncoder()).withUser("matt")
@@ -26,6 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		return new BCryptPasswordEncoder();
 	}
 
+	// authentication only needed for deactivation
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeRequests().antMatchers("/employee/deactivateEmployee/").authenticated().and().httpBasic();

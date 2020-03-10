@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import company.employeeRestApi.entities.Employee;
 
 /*
- * Using the @Service annotation for this service ensures that this class is 
+ * Using the @Service annotation for this class ensures that this object is 
  * only instantiated once on build and isn't created over and over again. 
  * This is an example of the Singleton design pattern. Using this service,
  * there is just one point of access to the database to separate business
@@ -24,6 +24,7 @@ public class EmployeeService {
 	private EmployeeRepository employeeRepository;
 
 	public List<Employee> getAllEmployees() {
+
 		List<Employee> employees = new ArrayList<Employee>();
 		employeeRepository.findAll().forEach(e -> {
 			if (e.isStatus()) {
@@ -34,6 +35,7 @@ public class EmployeeService {
 	}
 
 	public Employee getEmployee(Integer employeeId) {
+
 		Employee employee = employeeRepository.findById(employeeId).get();
 		if (employee.isStatus() == false) {
 			employee = new Employee(0);
@@ -42,17 +44,20 @@ public class EmployeeService {
 	}
 
 	public Employee saveEmployee(Employee employee) {
+
 		employeeRepository.save(employee);
 		return employee;
 	}
 
 	public Employee deleteEmployee(Employee employee) {
+
 		Employee employeeCopy = employee;
 		employeeRepository.delete(employee);
 		return employeeCopy;
 	}
 
 	public Employee deactivateEmployee(Integer employeeId) {
+
 		Employee employee = employeeRepository.findById(employeeId).orElse(null);
 		Employee employeeCopy = employee;
 		if (employee.isStatus() == false) {

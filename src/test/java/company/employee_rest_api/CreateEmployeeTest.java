@@ -17,13 +17,17 @@ public class CreateEmployeeTest {
 	@Test
 	public void createEmployee() throws ClientProtocolException, IOException, InterruptedException {
 
+		// Set test employee object
 		String payload = "{\"firstName\":\"Matthew\"," + "\"middleInitial\":\"D\"," + "\"lastName\":\"Joseph\","
 				+ "\"dateOfBirth\":\"1988-11-18\"," + "\"dateOfEmployment\":\"2020-03-07\"}";
 
+		// Add payload as json entity
 		StringEntity entity = new StringEntity(payload, ContentType.APPLICATION_JSON);
 
 		// Given
 		HttpPost request = new HttpPost("http://localhost:8080/employee/addEmployee");
+		
+		// Send entity payload in request
 		request.setEntity(entity);
 
 		// When

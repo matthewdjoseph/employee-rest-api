@@ -20,6 +20,7 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
 
+	// Homepage - displays all active employees
 	@RequestMapping("/")
 	public List<Employee> getAllEmployees() {
 		return employeeService.getAllEmployees();
@@ -29,12 +30,14 @@ public class EmployeeController {
 	// Get employee by id
 	@RequestMapping("/employee/{employeeId}")
 	public Employee getEmployeeById(@PathVariable("employeeId") Integer employeeId) {
+
 		return employeeService.getEmployee(employeeId);
 	}
 
 	// Add new employee
 	@RequestMapping(method = RequestMethod.POST, value = "/employee/addEmployee")
 	public Employee addEmployee(@RequestBody Employee employee) {
+
 		employee.setStatus(true);
 		employeeService.saveEmployee(employee);
 
@@ -45,6 +48,7 @@ public class EmployeeController {
 	@RequestMapping(method = RequestMethod.POST, value = "/employee/updateEmployee/{employeeId}")
 	public Employee updateEmployee(@PathVariable("employeeId") Integer employeeId,
 			@RequestBody Employee updatedEmployee) {
+
 		Employee employee = employeeService.getEmployee(employeeId);
 		Employee employeeCopy = employee;
 
@@ -62,6 +66,7 @@ public class EmployeeController {
 	// Delete employee
 	@RequestMapping(method = RequestMethod.DELETE, value = "/employee/deleteEmployee/{employeeId}")
 	public Employee deleteEmployee(@PathVariable("employeeId") Integer employeeId) {
+
 		Employee employee = employeeService.getEmployee(employeeId);
 		Employee employeecopy = employee;
 
@@ -72,16 +77,17 @@ public class EmployeeController {
 		return employeecopy;
 	}
 
-	// Update Status
+	// Update Employee Status
 	@RequestMapping(method = RequestMethod.DELETE, value = "/employee/deactivateEmployee/{employeeId}")
 	public Employee deactivateEmployee(@PathVariable("employeeId") Integer employeeId, HttpSession session) {
+
 		Employee employee = employeeService.getEmployee(employeeId);
 		Employee employeeCopy = employee;
 
 		if (employee.isStatus()) {
 			employeeService.deactivateEmployee(employeeId);
 		}
-		
+
 		return employeeCopy;
 	}
 
