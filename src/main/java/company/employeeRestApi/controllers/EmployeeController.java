@@ -34,15 +34,19 @@ public class EmployeeController {
 
 	// Add new employee
 	@RequestMapping(method = RequestMethod.POST, value = "/employee/addEmployee")
-	public void addEmployee(@RequestBody Employee employee) {
+	public Employee addEmployee(@RequestBody Employee employee) {
 		employee.setStatus(true);
 		employeeService.saveEmployee(employee);
+
+		return employee;
 	}
 
 	// Update employee
 	@RequestMapping(method = RequestMethod.POST, value = "/employee/updateEmployee/{employeeId}")
-	public void updateEmployee(@PathVariable("employeeId") Integer employeeId, @RequestBody Employee updatedEmployee) {
+	public Employee updateEmployee(@PathVariable("employeeId") Integer employeeId,
+			@RequestBody Employee updatedEmployee) {
 		Employee employee = employeeService.getEmployee(employeeId);
+		Employee employeeCopy = employee;
 
 		employee.setFirstName(updatedEmployee.getFirstName());
 		employee.setMiddleInitial(updatedEmployee.getMiddleInitial());
@@ -51,6 +55,8 @@ public class EmployeeController {
 		employee.setDateOfEmployment(updatedEmployee.getDateOfEmployment());
 
 		employeeService.saveEmployee(employee);
+
+		return employeeCopy;
 	}
 
 	// Delete employee
@@ -68,8 +74,15 @@ public class EmployeeController {
 
 	// Update Status
 	@RequestMapping(method = RequestMethod.DELETE, value = "/employee/deactivateEmployee/{employeeId}")
-	public void deactivateEmployee(@PathVariable("employeeId") Integer employeeId, HttpSession session) {
-		employeeService.deactivateEmployee(employeeId);
+	public Employee deactivateEmployee(@PathVariable("employeeId") Integer employeeId, HttpSession session) {
+		Employee employee = employeeService.getEmployee(employeeId);
+		Employee employeeCopy = employee;
+
+		if (employee.isStatus()) {
+			employeeService.deactivateEmployee(employeeId);
+		}
+		
+		return employeeCopy;
 	}
 
 }

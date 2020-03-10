@@ -41,25 +41,28 @@ public class EmployeeService {
 		return employee;
 	}
 
-	public String saveEmployee(Employee employee) {
+	public Employee saveEmployee(Employee employee) {
 		employeeRepository.save(employee);
-		return "Employee Saved Successfully";
+		return employee;
 	}
 
-	public String deleteEmployee(Employee employee) {
+	public Employee deleteEmployee(Employee employee) {
+		Employee employeeCopy = employee;
 		employeeRepository.delete(employee);
-		return "Employee Deleted Successfully";
+		return employeeCopy;
 	}
 
-	public String deactivateEmployee(Integer employeeId) {
+	public Employee deactivateEmployee(Integer employeeId) {
 		Employee employee = employeeRepository.findById(employeeId).orElse(null);
+		Employee employeeCopy = employee;
 		if (!employee.isStatus()) {
 			employee = null;
-			return "Employee Already Inactive";
+			System.gc();
+			return employeeCopy;
 		} else {
 			employee.setStatus(false);
 			employeeRepository.save(employee);
-			return "Employee Status Updated";
+			return employeeCopy;
 		}
 	}
 
