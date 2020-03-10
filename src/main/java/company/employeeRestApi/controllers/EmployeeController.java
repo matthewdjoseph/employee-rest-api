@@ -55,8 +55,15 @@ public class EmployeeController {
 
 	// Delete employee
 	@RequestMapping(method = RequestMethod.DELETE, value = "/employee/deleteEmployee/{employeeId}")
-	public void deleteEmployee(@PathVariable("employeeId") Integer employeeId) {
-		employeeService.deleteEmployee(employeeService.getEmployee(employeeId));
+	public Employee deleteEmployee(@PathVariable("employeeId") Integer employeeId) {
+		Employee employee = employeeService.getEmployee(employeeId);
+		Employee employeecopy = employee;
+
+		if (employee.getFirstName() != null) {
+			employeeService.deleteEmployee(employee);
+		}
+
+		return employeecopy;
 	}
 
 	// Update Status
