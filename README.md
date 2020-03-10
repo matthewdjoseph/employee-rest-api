@@ -68,8 +68,8 @@ This request returns a single JSON employee entity:
 }
 
 POST add single employee: http://localhost:8080/employee/
-This request accepts a JSON entity in the body and returns the employee entity
-that was entered into the database:
+This request accepts a JSON entity in the body and enters it
+into the database:
 
 Body Entity -
 
