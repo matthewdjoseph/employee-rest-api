@@ -57,9 +57,8 @@ public class Employee {
 		this.dateOfEmployment = dateOfEmployment;
 		this.status = status;
 	}
-	
-	public Employee(String firstName, String middleInitial, String lastName, Date dateOfBirth,
-			Date dateOfEmployment) {
+
+	public Employee(String firstName, String middleInitial, String lastName, Date dateOfBirth, Date dateOfEmployment) {
 
 		super();
 		this.firstName = firstName;
@@ -67,6 +66,15 @@ public class Employee {
 		this.lastName = lastName;
 		this.dateOfBirth = dateOfBirth;
 		this.dateOfEmployment = dateOfEmployment;
+	}
+
+	public Employee(int id) {
+		
+		super();
+		this.id = id;
+		this.firstName = "";
+		this.middleInitial = "";
+		this.lastName = "";
 	}
 
 	public int getId() {

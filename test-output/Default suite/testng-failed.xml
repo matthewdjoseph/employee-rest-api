@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="company.employee_rest_api.CreateEmployeeTest">
+      <class name="company.employee_rest_api.DeleteEmployeeTest">
         <methods>
-          <include name="createEmployee"/>
+          <include name="deleteEmployee"/>
         </methods>
-      </class> <!-- company.employee_rest_api.CreateEmployeeTest -->
+      </class> <!-- company.employee_rest_api.DeleteEmployeeTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

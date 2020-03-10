@@ -34,9 +34,9 @@ public class EmployeeService {
 	}
 
 	public Employee getEmployee(Integer employeeId) {
-		Employee employee = employeeRepository.findById(employeeId).orElse(null);
-		if (!employee.isStatus()) {
-			employee = null;
+		Employee employee = employeeRepository.findById(employeeId).get();
+		if (employee.isStatus() == false) {
+			employee = new Employee(0);
 		}
 		return employee;
 	}
