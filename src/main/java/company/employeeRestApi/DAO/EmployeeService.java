@@ -55,7 +55,7 @@ public class EmployeeService {
 	public Employee deactivateEmployee(Integer employeeId) {
 		Employee employee = employeeRepository.findById(employeeId).orElse(null);
 		Employee employeeCopy = employee;
-		if (!employee.isStatus()) {
+		if (employee.isStatus() == false) {
 			employee = null;
 			System.gc();
 			return employeeCopy;

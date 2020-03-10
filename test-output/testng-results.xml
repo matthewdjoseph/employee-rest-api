@@ -1,39 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="1181" started-at="2020-03-10T15:29:32Z" finished-at="2020-03-10T15:29:34Z">
+  <suite name="Default suite" duration-ms="624" started-at="2020-03-10T15:38:46Z" finished-at="2020-03-10T15:38:47Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="1181" started-at="2020-03-10T15:29:32Z" finished-at="2020-03-10T15:29:34Z">
-      <class name="company.employee_rest_api.GetEmployeesTest">
-        <test-method status="PASS" signature="getEmployeeById()[pri:0, instance:company.employee_rest_api.GetEmployeesTest@64bfbc86]" name="getEmployeeById" duration-ms="549" started-at="2020-03-10T15:29:32Z" finished-at="2020-03-10T15:29:33Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getEmployeeById -->
-        <test-method status="PASS" signature="getAllEmployees()[pri:0, instance:company.employee_rest_api.GetEmployeesTest@64bfbc86]" name="getAllEmployees" duration-ms="1158" started-at="2020-03-10T15:29:32Z" finished-at="2020-03-10T15:29:34Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getAllEmployees -->
-      </class> <!-- company.employee_rest_api.GetEmployeesTest -->
+    <test name="Default test" duration-ms="624" started-at="2020-03-10T15:38:46Z" finished-at="2020-03-10T15:38:47Z">
       <class name="company.employee_rest_api.DeactivateEmployeeTest">
-        <test-method status="PASS" signature="deactivateEmployee()[pri:0, instance:company.employee_rest_api.DeactivateEmployeeTest@55d56113]" name="deactivateEmployee" duration-ms="550" started-at="2020-03-10T15:29:32Z" finished-at="2020-03-10T15:29:33Z">
+        <test-method status="PASS" signature="deactivateEmployee()[pri:0, instance:company.employee_rest_api.DeactivateEmployeeTest@2d928643]" name="deactivateEmployee" duration-ms="602" started-at="2020-03-10T15:38:46Z" finished-at="2020-03-10T15:38:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deactivateEmployee -->
       </class> <!-- company.employee_rest_api.DeactivateEmployeeTest -->
-      <class name="company.employee_rest_api.DeleteEmployeeTest">
-        <test-method status="PASS" signature="deleteEmployee()[pri:0, instance:company.employee_rest_api.DeleteEmployeeTest@148080bb]" name="deleteEmployee" duration-ms="558" started-at="2020-03-10T15:29:32Z" finished-at="2020-03-10T15:29:33Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteEmployee -->
-      </class> <!-- company.employee_rest_api.DeleteEmployeeTest -->
-      <class name="company.employee_rest_api.CreateEmployeeTest">
-        <test-method status="PASS" signature="createEmployee()[pri:0, instance:company.employee_rest_api.CreateEmployeeTest@64bf3bbf]" name="createEmployee" duration-ms="553" started-at="2020-03-10T15:29:32Z" finished-at="2020-03-10T15:29:33Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createEmployee -->
-      </class> <!-- company.employee_rest_api.CreateEmployeeTest -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
