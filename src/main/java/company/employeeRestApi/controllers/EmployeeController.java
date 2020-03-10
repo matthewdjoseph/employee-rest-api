@@ -50,7 +50,6 @@ public class EmployeeController {
 			@RequestBody Employee updatedEmployee) {
 
 		Employee employee = employeeService.getEmployee(employeeId);
-		Employee employeeCopy = employee;
 
 		employee.setFirstName(updatedEmployee.getFirstName());
 		employee.setMiddleInitial(updatedEmployee.getMiddleInitial());
@@ -60,7 +59,7 @@ public class EmployeeController {
 
 		employeeService.saveEmployee(employee);
 
-		return employeeCopy;
+		return employee;
 	}
 
 	// Delete employee
@@ -68,13 +67,12 @@ public class EmployeeController {
 	public Employee deleteEmployee(@PathVariable("employeeId") Integer employeeId) {
 
 		Employee employee = employeeService.getEmployee(employeeId);
-		Employee employeecopy = employee;
 
 		if (employee.getFirstName() != null) {
 			employeeService.deleteEmployee(employee);
 		}
 
-		return employeecopy;
+		return employee;
 	}
 
 	// Update Employee Status
@@ -82,13 +80,12 @@ public class EmployeeController {
 	public Employee deactivateEmployee(@PathVariable("employeeId") Integer employeeId, HttpSession session) {
 
 		Employee employee = employeeService.getEmployee(employeeId);
-		Employee employeeCopy = employee;
 
 		if (employee.isStatus()) {
 			employeeService.deactivateEmployee(employeeId);
 		}
 
-		return employeeCopy;
+		return employee;
 	}
 
 }
